@@ -20,7 +20,7 @@ A Android app to demo how to integrate Google Play Billing (In app purchase, Sub
   - Update 1 app bundle build to any testing environment (recommend Internal Testing)
   - Add email tester
 - Step 4: Prepare a device with the main email service is the email which you use for tester
-- Step 5: Build a run project
+- Step 5: Build & run project
 
 
 # ref
