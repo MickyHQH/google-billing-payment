@@ -5,6 +5,8 @@ A Android app to demo how to integrate Google Play Billing (In app purchase, Sub
 - Android Jetpack Compose
 - Google Play Billing: v6.1.0
 
+![greet](assert/greeting.jpg) ![store](assert/store.jpg) ![buy](assert/buy.jpg)
+
 # How to setup
 - Step 1: Go to build gradle (app) change applicationId (ex: com.your-name.example)
 - Step 2: Build app bundle with signed bundle key
