@@ -31,7 +31,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.math.pow
 
-class BillingClientLifecycle private constructor(
+internal class BillingClientLifecycle private constructor(
     private val applicationContext: Context,
     private val listInAppProduct: List<String>,
     private val listSubsProduct: List<String>,
@@ -231,7 +231,7 @@ class BillingClientLifecycle private constructor(
      * https://developer.android.com/google/play/billing/compatibility
      */
     private fun querySubscriptionProductDetails() {
-        logger.d("querySubscriptionProductDetails")
+        logger.d("querySubscriptionProductDetails listSubsProduct $listSubsProduct")
         val params = QueryProductDetailsParams.newBuilder()
 
         val productList: MutableList<QueryProductDetailsParams.Product> = arrayListOf()
@@ -259,7 +259,7 @@ class BillingClientLifecycle private constructor(
      * https://developer.android.com/google/play/billing/compatibility
      */
     private fun queryOneTimeProductDetails() {
-        logger.d("queryOneTimeProductDetails")
+        logger.d("queryOneTimeProductDetails listInAppProduct $listInAppProduct")
         val params = QueryProductDetailsParams.newBuilder()
         val type = BillingClient.ProductType.INAPP
 

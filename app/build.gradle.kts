@@ -11,8 +11,8 @@ android {
         applicationId = "com.mickyhqh.paymentmoduleproject"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -66,4 +66,10 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation("androidx.core:core-splashscreen:1.1.0-alpha02")
+
+    implementation("androidx.navigation:navigation-compose:2.7.6")
+
+    implementation(project(mapOf("path" to ":GoogleBillingPayment")))
 }

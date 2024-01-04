@@ -23,7 +23,6 @@ import javax.inject.Singleton
 
 @Singleton
 class GoogleBillingPayment private constructor(
-    lifecycle: Lifecycle,
     applicationContext: Context,
     listInAppProduct: List<String>,
     listSubsProduct: List<String>,
@@ -33,22 +32,20 @@ class GoogleBillingPayment private constructor(
     private val billingClientLifecycle: BillingClientLifecycle
     init {
         billingClientLifecycle = BillingClientLifecycle.getInstance(applicationContext, listInAppProduct, listSubsProduct)
-        lifecycle.addObserver(billingClientLifecycle)
     }
+
     companion object {
 
         @Volatile
         private var INSTANCE: GoogleBillingPayment? = null
 
         fun getInstance(
-            lifecycle: Lifecycle,
             applicationContext: Context,
             listInAppProduct: List<String>,
             listSubsProduct: List<String>
         ): GoogleBillingPayment =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: GoogleBillingPayment(
-                    lifecycle,
                     applicationContext,
                     listInAppProduct,
                     listSubsProduct
@@ -145,6 +142,10 @@ class GoogleBillingPayment private constructor(
 
     override fun restore() {
         billingClientLifecycle.getProduct()
+    }
+
+    override fun addObserver(lifecycle: Lifecycle) {
+        lifecycle.addObserver(billingClientLifecycle)
     }
 
     private fun mapPurchaseState(purchaseState: Int): PurchaseCurrentState {
