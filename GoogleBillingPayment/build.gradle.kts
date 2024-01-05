@@ -50,9 +50,15 @@ afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("maven") {
-                groupId = "come.mickyhqh.googlebillingpayment"
+                groupId = "com.github.MickyHQH"
                 artifactId = "google-billing-payment"
-                version = "1.2.0"
+                version = "1.1.7"
+
+                if (project.plugins.hasPlugin("com.android.library")) {
+                    from(components["release"])
+                } else {
+                    from(components["java"])
+                }
             }
         }
     }
