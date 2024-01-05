@@ -45,3 +45,15 @@ dependencies {
     implementation("com.android.billingclient:billing:6.1.0")
     implementation("com.android.billingclient:billing-ktx:6.1.0")
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = "com.github.mickyhqh"
+                artifactId = "google-billing-payment"
+                version = "1.2.0"
+            }
+        }
+    }
+}
