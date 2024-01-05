@@ -50,7 +50,7 @@ afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("maven") {
-                groupId = "com.github.mickyhqh"
+                groupId = "come.mickyhqh.googlebillingpayment"
                 artifactId = "google-billing-payment"
                 version = "1.2.0"
             }
